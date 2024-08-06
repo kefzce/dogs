@@ -1,0 +1,15 @@
+[Unit]
+Description=dogs Request Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /root/dogs/app.py
+WorkingDirectory=/root/dogs/
+Restart=always
+RestartSec=5s
+StartLimitInterval=30s
+StartLimitBurst=3 
+SyslogIdentifier=dogsservice
+
+[Install]
+WantedBy=multi-user.target
